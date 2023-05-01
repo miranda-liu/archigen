@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}" />
+    <title>ArchGen</title>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="imageDisplay">
+        {% if img_data %}
+          <img id="picture" src="data:image/jpeg;base64,{{ img_data }}">
+          {% endif %}
+      </div>
+      <div class="rightSide">
+        <div class="logo">
+          <img src="{{ url_for('static', filename= 'archigen_logo-nobg.png') }}" alt="logo" />
+        </div>
+        <div class="form-control">
+          <form action="/prompt" method="post" id="form1">
+            <input
+              type="text"
+              name="prompt"
+              style="font-size: 32px"
+              id=""
+              placeholder="  Enter your prompt"
+            />
+          </form>
+          <!-- <form
+            action="https://shy-jeans-speak-35-199-186-116.loca.lt/"
+            method="get"
+            target="_blank"
+          > -->
+            <button type="submit" form="form1" class="generateButton">
+              <img class="generateLogo" src="{{ url_for('static', filename= 'icons8-floor-plan-100.png') }}" />
+              Generate
+            </button>
+          </form>
+          <!-- add an on clicl later! -->
+          <p class="card-footer">andrew, shrika, victory, miranda, eddy</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
