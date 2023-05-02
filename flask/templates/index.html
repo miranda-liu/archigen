@@ -13,6 +13,8 @@
       <div class="imageDisplay">
         {% if img_data %}
           <img id="picture" src="data:image/jpeg;base64,{{ img_data }}">
+        {% else %}
+          <img src="{{url_for('static', filename= 'Star_Vector.svg') }}" alt="Loading" class="Feed-loading" />
           {% endif %}
       </div>
       <div class="rightSide">
