@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}" />
+    <link rel="stylesheet" href="{{url_for('static', filename= 'style.css')}}" />
     <title>ArchGen</title>
   </head>
 
@@ -17,7 +17,7 @@
       </div>
       <div class="rightSide">
         <div class="logo">
-          <img src="{{ url_for('static', filename= 'archigen_logo-nobg.png') }}" alt="logo" />
+          <img src="{{url_for('static', filename= 'archigen_logo-nobg.png') }}" alt="logo" />
         </div>
         <div class="form-control">
           <form action="/prompt" method="post" id="form1">
@@ -35,7 +35,7 @@
             target="_blank"
           > -->
             <button type="submit" form="form1" class="generateButton">
-              <img class="generateLogo" src="{{ url_for('static', filename= 'icons8-floor-plan-100.png') }}" />
+              <img class="generateLogo" src="{{url_for('static', filename= 'icons8-floor-plan-100.png')}}" />
               Generate
             </button>
           </form>
