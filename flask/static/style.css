@@ -43,6 +43,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 80%;
 }
 
@@ -181,6 +182,31 @@ input {
   font-size: 32px;
   min-width: 5px;
   transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.keyPlaceholder {
+  background-color: #37474fff;
+  height: 40vh;
+  width: 40vh;
+  padding-top: 10px;
+  /* margin: auto; */
+  margin-top: 0;
+  align-items: left;
+  display: flex;
+  justify-content: left;
+}
+
+.keyImage {
+  height: 600px;
+  width: 200px;
+  margin-left: 50px;
+}
+
+.keyLabels {
+  font-size: 40px;
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .Feed-loadingContainer {
