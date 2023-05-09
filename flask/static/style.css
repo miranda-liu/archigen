@@ -137,8 +137,9 @@ body {
 .form-control {
   position: relative;
   width: 50vh;
-  height: 30vh;
-  margin: 0 auto;
+  height: 15vh;
+  margin-bottom: 0;
+  /* margin: 0 auto; */
 }
 
 input {
@@ -186,7 +187,7 @@ input {
 
 .keyPlaceholder {
   background-color: #37474fff;
-  height: 40vh;
+  height: 30vh;
   width: 40vh;
   padding-top: 10px;
   /* margin: auto; */
@@ -200,6 +201,10 @@ input {
   height: 600px;
   width: 200px;
   margin-left: 50px;
+}
+
+.keyLabelPlaceholder{
+  padding-top: 60px;
 }
 
 .keyLabels {
@@ -255,4 +260,9 @@ input {
 .card-footer {
   font-size: 0.65em;
   color: #446;
+}
+
+#image {
+  width: 100vh;
+  height: 100vh;
 }

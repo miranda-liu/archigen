@@ -1,6 +1,6 @@
-# from flask import Flask, render_template, request, session
-from flask import Flask, render_template, request, session, escape
+from flask import Flask, render_template, request, session
 from PIL import Image
+from rembg import remove
 import requests
 import json
 import base64
@@ -12,12 +12,7 @@ app.secret_key = 'wetooplaya'
 
 @app.route('/')
 def index():
-    img = request.args.get('img_bytes')
-    # if not img:
     return render_template('index.html')
-    # else:
-        # return render_template('index.html', img=session['img_bytes'])
-        # return render_template('index.html', img_data=img)
 
 
 @app.route('/prompt', methods=['POST'])
@@ -76,15 +71,17 @@ def post_prompt():
         if response.status_code == 200:
             response_json = json.loads(response.content)
             for i in response_json['images']:
-                image = Image.open(io.BytesIO(base64.b64decode(i.split(",",1)[0])))
+                img_bytes = io.BytesIO(base64.b64decode(i.split(",",1)[0]))
+                image = Image.open(img_bytes)
+                removed_bg_img = remove(image)
 
             data = io.BytesIO()
-            image.save(data, "JPEG")
+            removed_bg_img.save(data, "png")
             b64_encoded_image = base64.b64encode(data.getvalue()).decode('utf-8')
         else:
             raise Exception('Error: ' + str(response.status_code))
 
-        return render_template('index.html', img_data=b64_encoded_image)
+        return render_template('index.html', img_data=b64_encoded_image, prompt=prompt)
 
 
 if __name__ == '__main__':
